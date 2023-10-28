@@ -8,13 +8,69 @@
             border: 1px solid black;
             }
             .center{
-                text-align:
+                text-align: center;
             }
+        </style>
+        <style type = text/css>
+            td{
+                color:darkkhaki;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: 200;
+                margin: 20px 20px;
+                padding: 30px 25px;
+                border: 2px double darkblue;
+                position: relative;
+                border-radius: 10px;
+                text-align: center;
+            }
+            header{
+                position: static;
+                text-shadow: -4px 4px 6px darkgoldenrod;
+                text-align: left;
+            }
+           
+            body{
+                margin-top: 30px;
+                padding-top: 30px;
+                opacity: 1;
+                overflow: scroll;
+                background-color: beige;
+            }
+            h1{
+                font-size: larger;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-weight: bold;
+                color:coral;
+                text-align: left;
+
+            }
+
+            .special{
+                color: purple;
+                text-decoration: wavy;
+            }
+            @-webkit-keyframes movingImage{
+                0% {opacity: 0; left: 50px; top: 0px;
+            }
+        }
+
+            @keyframes movingImage{
+            0% {opacity: 0; left: 50px; top: 0px;}
+            25% {opacity: 1; left: 0px; top: 50px;}
+            50% {opacity: 0; left: 50px; top: 100px;}
+            75% {opacity: 1; left: 100px; top: 50px;}
+            100% {opacity: 0; left: 50px; top: 0px;}
+        }
+    
         </style>
     </head>
 
+    <header>
+        <h1> Order your PIZZA! </h1>
+    </header>
+
     <body>
-      <table broder = "1">
+      <table border = "1">
 
         <tr>
             <td colspan = "2">
@@ -93,12 +149,19 @@
         </tr>
 
         <tr>
-            <td colspan = "2">
+            <td>
                 <form action = "https://www.dominos.mk/" method = "post">
-                <input type = "submit" value = "Send my Order">
+                <input type = "submit" value = "Send my Order" class = "special">
                 </form>
-            </td>    
+            </td> 
+            <td>
+                <img src = "Capture1.JPG" width = "140" height = "135" alt = "Pizza in the oven!" class = "center">
+            </td>   
         </tr>
       </table>  
     </body>
+
+    <footer>
+        <img src = "Capture.JPG" width = "90" height = "85" alt = "Pizza photo">
+    </footer>
 </html>
