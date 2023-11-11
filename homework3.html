@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: bisque;
+        }
+        h2{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 4.44rem;
+            padding: 0 12%;
+            background-color: rgb(181, 62, 62);
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
+            font-family: Verdana, sans-serif;
+            font-size: .77rem;
+            font-weight: bold;
+        }
+
+        h1{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 6.44rem;
+            padding: 0 12%;
+            background-color: rgb(116, 29, 29);
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
+            font-family: Verdana, sans-serif;
+            font-size: .97rem;
+            font-weight: bolder;
+        }
+        p {
+            align-items: center;
+            font-family: Verdana, sans-serif;
+            font-size: .97rem;
+            font-weight: bolder;
+        }
+        li{
+        color: rgba(121, 37, 37, 0.7)
+        }
+
+        #guessInput {
+            padding: 8px;
+            font-size: 16px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            position: relative;
+}
+
+        #guessInput:focus {
+            border-color: #007bff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+        
+    </style>
+    <title>Погоди го зборот</title>
+</head>
+<body>
+
+    <h2>Правила на играта</h2>
+    <ol>
+        <li> Замислени се 20 збора од по 8 букви, кои Вие треба да ги погодите! </li>
+        <li> Дадени се првите три букви од секој збор, а за да го погодите имате пет шанси. </li>
+        <li> Со среќа! </li>
+    </ol>
+
+    <h1>Погоди го зборот</h1>
+    <p id="word"></p>
+    <p id="attempts">Обиди: <span id="attemptsCount">0</span></p>
+    <input type="text" id="guessInput" maxlength="8"> <!-- Update maxlength to the maximum word length -->
+    <button onclick="checkGuess()">Провери</button>
+
+    <script>
+        let words=["роденден", "авантура", "портокал", "прозорец", "грамофон", "телефони", "фрижидер", "учебници", "слушалки", "собрание", "стадиони", "фармерки", "паричник", "часовник", "чиновник", "чоколадо", "орхидеја", "интернет", "сијалица", "месечина"];
+        let maxAttempts = 5;
+        let currentWord = "";
+        let displayedWord = [];
+        let attempts = 0;
+
+        function startGame() {
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            displayedWord = currentWord.substring(0, 3).split('').concat(new Array(currentWord.length - 3).fill('_'));
+            attempts = 0;
+
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById('word').textContent = displayedWord.join(' ');
+            document.getElementById('attemptsCount').textContent = attempts;
+        }
+
+        function checkGuess() {
+            let guess = document.getElementById('guessInput').value.toLowerCase();
+
+            if (/^[a-zа-ѕ]+$/.test(guess)) {
+                if (guess.length === currentWord.length) {
+                    if (guess === currentWord) {
+                        alert('Браво!');
+                        startGame();
+                    } else {
+                        attempts++;
+                        if (attempts >= maxAttempts) {
+                            alert('Не успеавте да го погодите зборот. Зборот беше: ' + currentWord);
+                            startGame();
+                        }
+                    }
+
+                    updateDisplay();
+                } else {
+                    alert('Внесете збор со точно ' + currentWord.length + ' букви.');
+                }
+            } else {
+                alert('Внесете валиден збор составен само од букви.');
+            }
+
+            document.getElementById('guessInput').value = '';
+        }
+
+        // Започни нова игра при вчитување на страницата
+        startGame();
+    </script>
+</body>
+</html>
