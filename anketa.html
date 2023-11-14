@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Анкета </title>
+        <style>
+             p{
+                font-family: 'Courier New', Courier, monospace;
+                font-size: medium;
+            }
+            label{
+                font-family: 'Courier New', Courier, monospace;
+                font-size: medium;
+            }
+
+            form{
+                font-family: 'Courier New', Courier, monospace;
+                font-size: medium;
+            }
+
+            button{
+                block-size: auto;
+                cursor: pointer;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: medium;
+            }
+        
+        </style>
+
+    </head>
+<body>
+
+    <p> Внесете го Вашето искуство </p>
+    <p> Име: </p>
+    <form> <input type = "text" name = "name" id = "name"> </form>
+    <p> Што нарачавте? </p>
+    <form> <label>
+        <input type = "radio" name = "food" value = "zelencuk"> Зеленчук <br> 
+    </label>    
+    <label>
+        <input type = "radio" name = "food" value = "ovosje"> Овошје <br>
+    </label>
+    <label>
+        <input type = "radio" name = "food" value = "drugo"> Друго
+    </label></form>
+
+    <form>  <label for="ocena">Оценете ја услугата:</label>
+        <select id="ocena" name="ocena" required>
+          <option value="A">10</option>
+          <option value="B">9</option>
+          <option value="C">8</option>
+          <option value="D">7</option>
+          <option value="F">6</option></select></form>
+
+    <form>
+      <input type = "Submit" value = "Испрати" class = "button"> 
+    </form>      
+
+
+</body>
+</html>
+

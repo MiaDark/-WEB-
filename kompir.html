@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Review</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 10px;
+      background-color: #f2f2f2;
+    }
+
+    section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .product {
+      max-width: 600px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .review-form {
+      max-width: 400px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    p {
+        font-size: 
+        color: #886CEB; 
+        margin-bottom: 10px;
+        line-height: 1.5;
+        font-family: 'Arial', sans-serif; 
+        
+    }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Беровски компир</h1>
+  </header>
+
+  <section>
+    <div class="product">
+      <h2>Беровски компир</h2>
+      <p>Најпознатата земјоделска култура во источниот регион - беровскиот компир. Компирот е погоден за секаков вид салата, како и пире и гарнир за секаков вид приготвено месо
+        </p>
+      <p>Цена: 90.00МКД</p>
+      
+    </div>
+
+    <div class="review-form">
+      <h2>Напишете рецензија</h2>
+      <form>
+        <label for="review">Ваше мислење:</label>
+        <textarea id="review" name="review" required></textarea>
+        
+        <label for="rating">Оцена:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required>
+
+        <button type="submit">Поднеси</button>
+      </form>
+    </div>
+  </section>
+
+
+
+  <footer>
+    <p>&copy Сите права се задржани</p>
+  </footer>
+
+</body>
+</html>

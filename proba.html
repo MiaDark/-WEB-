@@ -1,9 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+    <title>Погоди го зборот</title>
+</head>
 <body>
+    <h1>Погоди го зборот</h1>
+    <p id="word"></p>
+    <p id="attempts">Обиди: <span id="attemptsCount">0</span></p>
+    <input type="text" id="guessInput" maxlength="8"> <!-- Update maxlength to the maximum word length -->
+    <button onclick="checkGuess()">Провери</button>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+    <script>
+        let words=["роденден", "авантура", "портокал", "прозорец", "грамофон", "телефони", "фрижидер", "учебници", "слушалки", "собрание", "стадиони", "фармерки", "паричник", "часовник", "чиновник", "чоколадо", "орхидеја", "интернет", "сијалица", "месечина"];
+        let maxAttempts = 5;
+        let currentWord = "";
+        let displayedWord = [];
+        let attempts = 0;
 
+        function startGame() {
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            displayedWord = currentWord.substring(0, 3).split('').concat(new Array(currentWord.length - 3).fill('_'));
+            attempts = 0;
+
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById('word').textContent = displayedWord.join(' ');
+            document.getElementById('attemptsCount').textContent = attempts;
+        }
+
+        function checkGuess() {
+            let guess = document.getElementById('guessInput').value.toLowerCase();
+
+            if (/^[a-zа-ѕ]+$/.test(guess)) {
+                if (guess.length === currentWord.length) {
+                    if (guess === currentWord) {
+                        alert('Погодивте зборот!');
+                        startGame();
+                    } else {
+                        attempts++;
+                        if (attempts >= maxAttempts) {
+                            alert('Не успеавте да го погодите зборот. Зборот беше: ' + currentWord);
+                            startGame();
+                        }
+                    }
+
+                    updateDisplay();
+                } else {
+                    alert('Внесете збор со точно ' + currentWord.length + ' букви.');
+                }
+            } else {
+                alert('Внесете валиден збор составен само од букви.');
+            }
+
+            document.getElementById('guessInput').value = '';
+        }
+
+        // Започни нова игра при вчитување на страницата
+        startGame();
+    </script>
 </body>
 </html>
